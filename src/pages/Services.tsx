@@ -1,0 +1,196 @@
+import { Link } from "react-router-dom";
+import { ArrowRight, TrendingUp, Users, CheckCircle, BarChart3, MessageCircle, Calendar, Megaphone, Target } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Layout } from "@/components/layout/Layout";
+
+const advertisingFeatures = [
+  "Facebook & Instagram Ads",
+  "TikTok Advertising",
+  "Audience Research & Targeting",
+  "Creative Strategy & Testing",
+  "Conversion Tracking Setup",
+  "Weekly Performance Reports",
+  "Retargeting Campaigns",
+  "Scaling Strategies",
+];
+
+const managementFeatures = [
+  "Content Strategy & Planning",
+  "Daily Posting & Scheduling",
+  "Community Management",
+  "Influencer Outreach",
+  "Brand Voice Development",
+  "Monthly Analytics Reports",
+  "Story & Reel Creation",
+  "Engagement Growth Tactics",
+];
+
+export const Services = () => {
+  return (
+    <Layout>
+      {/* Hero */}
+      <section className="section-padding pt-32 md:pt-40">
+        <div className="container-narrow">
+          <div className="max-w-3xl">
+            <p className="text-sm font-medium text-muted-foreground mb-4 animate-fade-in-up">OUR SERVICES</p>
+            <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              Comprehensive digital growth solutions
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              We offer two core services designed to drive real, measurable results 
+              for your business. Each service can be tailored to your specific needs and goals.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Media Advertising */}
+      <section className="section-padding" id="advertising">
+        <div className="container-narrow">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-foreground text-background flex items-center justify-center">
+                  <TrendingUp size={32} />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-black">Social Media Advertising</h2>
+              </div>
+              <p className="text-lg text-muted-foreground mb-8">
+                Turn your ad spend into predictable revenue. Our data-driven approach 
+                to paid social ensures every dollar works hard for your business.
+              </p>
+              <p className="text-muted-foreground mb-8">
+                We don't just run ads—we build conversion machines. From creative 
+                development to audience targeting to scaling strategies, we handle 
+                everything so you can focus on running your business.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button variant="hero" size="lg" asChild>
+                  <Link to="/apply">
+                    Get Started
+                    <ArrowRight size={18} />
+                  </Link>
+                </Button>
+                <Button variant="hero-outline" size="lg" asChild>
+                  <Link to="/pricing">View Pricing</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="bg-secondary p-8 md:p-12">
+              <h3 className="text-xl font-bold mb-6">What's Included</h3>
+              <ul className="space-y-4">
+                {advertisingFeatures.map((feature) => (
+                  <li key={feature} className="flex items-center gap-3">
+                    <CheckCircle size={20} className="shrink-0" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="container-narrow">
+        <div className="border-t border-border"></div>
+      </div>
+
+      {/* Social Media Management */}
+      <section className="section-padding" id="management">
+        <div className="container-narrow">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="order-2 lg:order-1 bg-secondary p-8 md:p-12">
+              <h3 className="text-xl font-bold mb-6">What's Included</h3>
+              <ul className="space-y-4">
+                {managementFeatures.map((feature) => (
+                  <li key={feature} className="flex items-center gap-3">
+                    <CheckCircle size={20} className="shrink-0" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="order-1 lg:order-2">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-16 h-16 bg-foreground text-background flex items-center justify-center">
+                  <Users size={32} />
+                </div>
+                <h2 className="text-3xl md:text-4xl font-black">Social Media Management</h2>
+              </div>
+              <p className="text-lg text-muted-foreground mb-8">
+                Build a brand presence that attracts, engages, and converts. We handle 
+                everything from content creation to community management.
+              </p>
+              <p className="text-muted-foreground mb-8">
+                Consistent, high-quality content is the foundation of a strong brand. 
+                Our team creates scroll-stopping content that resonates with your 
+                audience and drives real engagement.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button variant="hero" size="lg" asChild>
+                  <Link to="/apply">
+                    Get Started
+                    <ArrowRight size={18} />
+                  </Link>
+                </Button>
+                <Button variant="hero-outline" size="lg" asChild>
+                  <Link to="/pricing">View Pricing</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="section-padding bg-secondary">
+        <div className="container-narrow">
+          <div className="max-w-2xl mb-16">
+            <p className="text-sm font-medium text-muted-foreground mb-4">OUR PROCESS</p>
+            <h2 className="text-3xl md:text-5xl font-black">How we work</h2>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              { icon: MessageCircle, title: "Discovery Call", description: "We learn about your business, goals, and challenges." },
+              { icon: Target, title: "Strategy", description: "Custom strategy developed for your specific needs." },
+              { icon: Megaphone, title: "Execution", description: "We launch and manage everything for you." },
+              { icon: BarChart3, title: "Optimize", description: "Continuous testing and improvement for maximum ROI." },
+            ].map((step, index) => (
+              <div key={step.title} className="relative">
+                <div className="text-6xl font-black text-border mb-4">0{index + 1}</div>
+                <step.icon size={32} className="mb-4" strokeWidth={1.5} />
+                <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                <p className="text-muted-foreground text-sm">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-padding bg-foreground text-background">
+        <div className="container-narrow text-center">
+          <h2 className="text-3xl md:text-5xl font-black mb-6">
+            Ready to accelerate your growth?
+          </h2>
+          <p className="text-background/70 text-lg mb-8 max-w-2xl mx-auto">
+            Book a free strategy call to discuss how we can help your business achieve its goals.
+          </p>
+          <Button 
+            variant="outline" 
+            size="xl" 
+            className="border-background text-background hover:bg-background hover:text-foreground"
+            asChild
+          >
+            <Link to="/apply">
+              Apply to Work With Us
+              <ArrowRight size={20} />
+            </Link>
+          </Button>
+        </div>
+      </section>
+    </Layout>
+  );
+};
