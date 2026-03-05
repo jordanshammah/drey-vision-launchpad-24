@@ -81,6 +81,9 @@
     --gray-light: 0 0% 10%;
     --gray-medium: 0 0% 50%;
     --gray-dark: 0 0% 80%;
+
+    --red-accent: 0 84% 55%;
+    --red-accent-foreground: 0 0% 100%;
   }
 }
 
