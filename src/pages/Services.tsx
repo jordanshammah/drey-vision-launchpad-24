@@ -32,7 +32,7 @@ export const Services = () => {
       <section className="section-padding pt-32 md:pt-40">
         <div className="container-narrow">
           <div className="max-w-3xl">
-            <p className="text-sm font-medium text-muted-foreground mb-4 animate-fade-in-up">OUR SERVICES</p>
+            <p className="text-sm font-medium text-red-accent mb-4 animate-fade-in-up">OUR SERVICES</p>
             <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
               Comprehensive digital growth solutions
             </h1>
@@ -50,7 +50,7 @@ export const Services = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-foreground text-background flex items-center justify-center">
+                <div className="w-16 h-16 bg-red-accent text-red-accent-foreground flex items-center justify-center">
                   <TrendingUp size={32} />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-black">Social Media Advertising</h2>
@@ -65,7 +65,7 @@ export const Services = () => {
                 everything so you can focus on running your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="lg" asChild>
+                <Button variant="hero" size="lg" className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90" asChild>
                   <Link to="/apply">
                     Get Started
                     <ArrowRight size={18} />
@@ -81,7 +81,7 @@ export const Services = () => {
               <ul className="space-y-4">
                 {advertisingFeatures.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
-                    <CheckCircle size={20} className="shrink-0" />
+                    <CheckCircle size={20} className="shrink-0 text-red-accent" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -105,7 +105,7 @@ export const Services = () => {
               <ul className="space-y-4">
                 {managementFeatures.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
-                    <CheckCircle size={20} className="shrink-0" />
+                    <CheckCircle size={20} className="shrink-0 text-red-accent" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -113,7 +113,7 @@ export const Services = () => {
             </div>
             <div className="order-1 lg:order-2">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-foreground text-background flex items-center justify-center">
+                <div className="w-16 h-16 bg-red-accent text-red-accent-foreground flex items-center justify-center">
                   <Users size={32} />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-black">Social Media Management</h2>
@@ -128,7 +128,7 @@ export const Services = () => {
                 audience and drives real engagement.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="hero" size="lg" asChild>
+                <Button variant="hero" size="lg" className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90" asChild>
                   <Link to="/apply">
                     Get Started
                     <ArrowRight size={18} />
@@ -147,7 +147,7 @@ export const Services = () => {
       <section className="section-padding bg-secondary">
         <div className="container-narrow">
           <div className="max-w-2xl mb-16">
-            <p className="text-sm font-medium text-muted-foreground mb-4">OUR PROCESS</p>
+            <p className="text-sm font-medium text-red-accent mb-4">OUR PROCESS</p>
             <h2 className="text-3xl md:text-5xl font-black">How we work</h2>
           </div>
 
@@ -159,7 +159,7 @@ export const Services = () => {
               { icon: BarChart3, title: "Optimize", description: "Continuous testing and improvement for maximum ROI." },
             ].map((step, index) => (
               <div key={step.title} className="relative">
-                <div className="text-6xl font-black text-border mb-4">0{index + 1}</div>
+                <div className="text-6xl font-black text-red-accent/20 mb-4">0{index + 1}</div>
                 <step.icon size={32} className="mb-4" strokeWidth={1.5} />
                 <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                 <p className="text-muted-foreground text-sm">{step.description}</p>
@@ -179,9 +179,8 @@ export const Services = () => {
             Book a free strategy call to discuss how we can help your business achieve its goals.
           </p>
           <Button 
-            variant="outline" 
             size="xl" 
-            className="border-background text-background hover:bg-background hover:text-foreground"
+            className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90"
             asChild
           >
             <Link to="/apply">

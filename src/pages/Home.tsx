@@ -49,8 +49,7 @@ export const Home = () => {
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1.1] mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
               Where digital strategy meets{" "}
               <span className="relative">
-                real growth
-                <span className="absolute bottom-2 left-0 w-full h-3 bg-foreground/10 -z-10"></span>
+                <span className="text-red-accent">real growth</span>
               </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
@@ -58,7 +57,7 @@ export const Home = () => {
               advertising and management. No fluff. Just results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-              <Button variant="hero" size="xl" asChild>
+              <Button variant="hero" size="xl" className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90" asChild>
                 <Link to="/apply">
                   Apply to Work With Us
                   <ArrowRight size={20} />
@@ -90,7 +89,7 @@ export const Home = () => {
       <section className="section-padding">
         <div className="container-narrow">
           <div className="max-w-2xl mb-16">
-            <p className="text-sm font-medium text-muted-foreground mb-4">WHAT WE DO</p>
+            <p className="text-sm font-medium text-red-accent mb-4">WHAT WE DO</p>
             <h2 className="text-3xl md:text-5xl font-black mb-6">
               Strategic growth, executed flawlessly
             </h2>
@@ -105,7 +104,7 @@ export const Home = () => {
                 key={service.title}
                 className="group p-8 md:p-12 border-2 border-border hover:border-foreground transition-colors"
               >
-                <service.icon size={40} className="mb-6" strokeWidth={1.5} />
+                <service.icon size={40} className="mb-6 text-red-accent" strokeWidth={1.5} />
                 <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
                 <p className="text-muted-foreground mb-6">{service.description}</p>
                 <Link 
@@ -125,7 +124,7 @@ export const Home = () => {
         <div className="container-narrow">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-medium text-muted-foreground mb-4">WHY DVM</p>
+              <p className="text-sm font-medium text-red-accent mb-4">WHY DVM</p>
               <h2 className="text-3xl md:text-5xl font-black mb-6">
                 We're not your average agency
               </h2>
@@ -142,7 +141,7 @@ export const Home = () => {
                   "No long-term contracts required",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-foreground"></div>
+                    <div className="w-2 h-2 bg-red-accent"></div>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -150,11 +149,11 @@ export const Home = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-foreground text-background p-8 flex flex-col justify-end aspect-square">
-                <Zap size={32} className="mb-4" />
+                <Zap size={32} className="mb-4 text-red-accent" />
                 <p className="font-bold">Fast Execution</p>
               </div>
               <div className="bg-foreground text-background p-8 flex flex-col justify-end aspect-square mt-8">
-                <Target size={32} className="mb-4" />
+                <Target size={32} className="mb-4 text-red-accent" />
                 <p className="font-bold">Precision Targeting</p>
               </div>
             </div>
@@ -165,7 +164,7 @@ export const Home = () => {
       {/* Testimonials */}
       <section className="section-padding">
         <div className="container-narrow">
-          <p className="text-sm font-medium text-muted-foreground mb-4 text-center">TESTIMONIALS</p>
+          <p className="text-sm font-medium text-red-accent mb-4 text-center">TESTIMONIALS</p>
           <h2 className="text-3xl md:text-5xl font-black mb-16 text-center">
             What our clients say
           </h2>
@@ -198,9 +197,8 @@ export const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              variant="outline" 
               size="xl" 
-              className="border-background text-background hover:bg-background hover:text-foreground"
+              className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90"
               asChild
             >
               <Link to="/apply">

@@ -73,7 +73,7 @@ export const Pricing = () => {
       <section className="section-padding pt-32 md:pt-40">
         <div className="container-narrow">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-sm font-medium text-muted-foreground mb-4 animate-fade-in-up">PRICING</p>
+            <p className="text-sm font-medium text-red-accent mb-4 animate-fade-in-up">PRICING</p>
             <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
               Transparent pricing, real results
             </h1>
@@ -94,12 +94,12 @@ export const Pricing = () => {
                 key={plan.name} 
                 className={`relative p-8 md:p-10 border-2 ${
                   plan.popular 
-                    ? "border-foreground" 
+                    ? "border-red-accent" 
                     : "border-border"
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-foreground text-background px-4 py-1 text-sm font-semibold">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-accent text-red-accent-foreground px-4 py-1 text-sm font-semibold">
                     MOST POPULAR
                   </div>
                 )}
@@ -113,7 +113,7 @@ export const Pricing = () => {
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <Check size={20} className="shrink-0 mt-0.5" />
+                      <Check size={20} className="shrink-0 mt-0.5 text-red-accent" />
                       <span className="text-sm">{feature}</span>
                     </li>
                   ))}
@@ -121,7 +121,7 @@ export const Pricing = () => {
 
                 <Button 
                   variant={plan.popular ? "hero" : "hero-outline"} 
-                  className="w-full" 
+                  className={`w-full ${plan.popular ? "bg-red-accent text-red-accent-foreground hover:bg-red-accent/90" : ""}`}
                   size="lg"
                   asChild
                 >
@@ -140,7 +140,7 @@ export const Pricing = () => {
       <section className="section-padding bg-secondary">
         <div className="container-narrow">
           <div className="max-w-2xl mb-12">
-            <p className="text-sm font-medium text-muted-foreground mb-4">ADD-ONS</p>
+            <p className="text-sm font-medium text-red-accent mb-4">ADD-ONS</p>
             <h2 className="text-3xl md:text-4xl font-black">Enhance your package</h2>
           </div>
 
@@ -155,12 +155,12 @@ export const Pricing = () => {
         </div>
       </section>
 
-      {/* FAQ-like section */}
+      {/* FAQ */}
       <section className="section-padding">
         <div className="container-narrow">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
-              <p className="text-sm font-medium text-muted-foreground mb-4">COMMON QUESTIONS</p>
+              <p className="text-sm font-medium text-red-accent mb-4">COMMON QUESTIONS</p>
               <h2 className="text-3xl md:text-4xl font-black mb-8">Before you apply</h2>
             </div>
             <div className="space-y-8">
@@ -202,9 +202,8 @@ export const Pricing = () => {
             Apply now to see if we're the right fit for your business.
           </p>
           <Button 
-            variant="outline" 
             size="xl" 
-            className="border-background text-background hover:bg-background hover:text-foreground"
+            className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90"
             asChild
           >
             <Link to="/apply">

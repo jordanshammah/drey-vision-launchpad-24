@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Award, Users, Target, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import dvmLogo from "@/assets/dvm-logo.jpeg";
 
 const values = [
   {
@@ -33,7 +34,7 @@ export const About = () => {
       <section className="section-padding pt-32 md:pt-40">
         <div className="container-narrow">
           <div className="max-w-3xl">
-            <p className="text-sm font-medium text-muted-foreground mb-4 animate-fade-in-up">ABOUT US</p>
+            <p className="text-sm font-medium text-red-accent mb-4 animate-fade-in-up">ABOUT US</p>
             <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
               We build brands that dominate
             </h1>
@@ -49,8 +50,8 @@ export const About = () => {
       <section className="section-padding">
         <div className="container-narrow">
           <div className="grid lg:grid-cols-2 gap-16">
-            <div className="bg-secondary aspect-square flex items-center justify-center">
-              <p className="text-6xl font-black">DVM</p>
+            <div className="bg-foreground aspect-square flex items-center justify-center p-12">
+              <img src={dvmLogo} alt="Drey Vision Marketing" className="max-w-[80%] max-h-[80%] object-contain" />
             </div>
             <div className="flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-black mb-6">Our Story</h2>
@@ -80,7 +81,7 @@ export const About = () => {
       <section className="section-padding bg-secondary">
         <div className="container-narrow">
           <div className="max-w-2xl mb-16">
-            <p className="text-sm font-medium text-muted-foreground mb-4">OUR VALUES</p>
+            <p className="text-sm font-medium text-red-accent mb-4">OUR VALUES</p>
             <h2 className="text-3xl md:text-5xl font-black">
               What drives us
             </h2>
@@ -89,7 +90,7 @@ export const About = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {values.map((value) => (
               <div key={value.title} className="bg-background p-8 md:p-12">
-                <value.icon size={40} className="mb-6" strokeWidth={1.5} />
+                <value.icon size={40} className="mb-6 text-red-accent" strokeWidth={1.5} />
                 <h3 className="text-2xl font-bold mb-4">{value.title}</h3>
                 <p className="text-muted-foreground">{value.description}</p>
               </div>
@@ -103,7 +104,7 @@ export const About = () => {
         <div className="container-narrow">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-sm font-medium text-muted-foreground mb-4">OUR APPROACH</p>
+              <p className="text-sm font-medium text-red-accent mb-4">OUR APPROACH</p>
               <h2 className="text-3xl md:text-5xl font-black mb-6">
                 Strategy first, always
               </h2>
@@ -118,7 +119,7 @@ export const About = () => {
                   a custom strategy designed to achieve your specific goals.
                 </p>
               </div>
-              <Button variant="hero" size="lg" asChild>
+              <Button variant="hero" size="lg" className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90" asChild>
                 <Link to="/services">
                   Explore Our Services
                   <ArrowRight size={18} />
@@ -128,7 +129,7 @@ export const About = () => {
             <div className="space-y-4">
               {["Discovery & Research", "Strategy Development", "Execution & Optimization", "Reporting & Scaling"].map((step, index) => (
                 <div key={step} className="flex items-center gap-6 p-6 border-2 border-border hover:border-foreground transition-colors">
-                  <span className="text-4xl font-black text-muted-foreground">0{index + 1}</span>
+                  <span className="text-4xl font-black text-red-accent">0{index + 1}</span>
                   <span className="text-xl font-bold">{step}</span>
                 </div>
               ))}
@@ -147,9 +148,8 @@ export const About = () => {
             Ready to partner with a team that's as invested in your success as you are?
           </p>
           <Button 
-            variant="outline" 
             size="xl" 
-            className="border-background text-background hover:bg-background hover:text-foreground"
+            className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90"
             asChild
           >
             <Link to="/apply">
