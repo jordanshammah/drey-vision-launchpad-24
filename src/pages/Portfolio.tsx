@@ -65,7 +65,7 @@ export const Portfolio = () => {
       <section className="section-padding pt-32 md:pt-40">
         <div className="container-narrow">
           <div className="max-w-3xl">
-            <p className="text-sm font-medium text-muted-foreground mb-4 animate-fade-in-up">PORTFOLIO</p>
+            <p className="text-sm font-medium text-red-accent mb-4 animate-fade-in-up">PORTFOLIO</p>
             <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
               Real results for real businesses
             </h1>
@@ -88,17 +88,17 @@ export const Portfolio = () => {
               >
                 <div className={`${index % 2 === 1 ? "lg:order-2" : ""}`}>
                   <div className="aspect-[4/3] bg-secondary flex items-center justify-center">
-                    <TrendingUp size={80} strokeWidth={1} className="text-muted-foreground" />
+                    <TrendingUp size={80} strokeWidth={1} className="text-red-accent/30" />
                   </div>
                 </div>
                 <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-sm font-medium text-muted-foreground">{study.category}</span>
-                    <span className="text-muted-foreground">•</span>
+                    <span className="text-red-accent">•</span>
                     <span className="text-sm font-medium text-muted-foreground">{study.service}</span>
                   </div>
                   <h2 className="text-3xl md:text-4xl font-black mb-2">{study.title}</h2>
-                  <p className="text-xl font-bold mb-4">{study.result}</p>
+                  <p className="text-xl font-bold text-red-accent mb-4">{study.result}</p>
                   <p className="text-muted-foreground mb-8">{study.description}</p>
                   
                   <div className="grid grid-cols-3 gap-4 mb-8">
@@ -120,7 +120,7 @@ export const Portfolio = () => {
       <section className="section-padding bg-secondary">
         <div className="container-narrow">
           <div className="text-center mb-16">
-            <p className="text-sm font-medium text-muted-foreground mb-4">BY THE NUMBERS</p>
+            <p className="text-sm font-medium text-red-accent mb-4">BY THE NUMBERS</p>
             <h2 className="text-3xl md:text-5xl font-black">Our collective impact</h2>
           </div>
 
@@ -150,9 +150,8 @@ export const Portfolio = () => {
             Apply to work with us and let's discuss how we can help your business grow.
           </p>
           <Button 
-            variant="outline" 
             size="xl" 
-            className="border-background text-background hover:bg-background hover:text-foreground"
+            className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90"
             asChild
           >
             <Link to="/apply">

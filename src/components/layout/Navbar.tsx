@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import dvmLogo from "@/assets/dvm-logo.jpeg";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -21,8 +22,8 @@ export const Navbar = () => {
       <div className="container-narrow section-padding py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="text-xl md:text-2xl font-black tracking-tight">
-            DVM
+          <Link to="/" className="flex items-center">
+            <img src={dvmLogo} alt="Drey Vision Marketing" className="h-10 md:h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -42,7 +43,7 @@ export const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button variant="default" size="sm" asChild>
+            <Button variant="default" size="sm" className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90" asChild>
               <Link to="/apply">Apply Now</Link>
             </Button>
           </div>
@@ -71,7 +72,7 @@ export const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <Button variant="default" className="mt-2" asChild>
+              <Button className="mt-2 bg-red-accent text-red-accent-foreground hover:bg-red-accent/90" asChild>
                 <Link to="/apply" onClick={() => setIsOpen(false)}>
                   Apply Now
                 </Link>

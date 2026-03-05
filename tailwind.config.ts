@@ -55,6 +55,10 @@ export default {
           medium: "hsl(var(--gray-medium))",
           dark: "hsl(var(--gray-dark))",
         },
+        "red-accent": {
+          DEFAULT: "hsl(var(--red-accent))",
+          foreground: "hsl(var(--red-accent-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
