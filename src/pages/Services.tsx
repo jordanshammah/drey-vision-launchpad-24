@@ -14,15 +14,15 @@ const advertisingFeatures = [
   "Scaling Strategies",
 ];
 
-const managementFeatures = [
-  "Content Strategy & Planning",
-  "Daily Posting & Scheduling",
-  "Community Management",
-  "Influencer Outreach",
-  "Brand Voice Development",
-  "Monthly Analytics Reports",
-  "Story & Reel Creation",
-  "Engagement Growth Tactics",
+const webDevFeatures = [
+  "Custom website design tailored to your brand",
+  "Mobile-optimized and fast-loading pages",
+  "Conversion-focused layout to turn visitors into leads",
+  "Integration with booking systems, WhatsApp, or forms",
+  "SEO-friendly site structure",
+  "Monthly website maintenance and updates",
+  "Security monitoring and backups",
+  "Performance optimization",
 ];
 
 export const Services = () => {
