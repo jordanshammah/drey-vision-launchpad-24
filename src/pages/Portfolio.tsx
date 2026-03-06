@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 
 const caseStudies = [
   {
@@ -65,14 +67,20 @@ export const Portfolio = () => {
       <section className="section-padding pt-32 md:pt-40">
         <div className="container-narrow">
           <div className="max-w-3xl">
-            <p className="text-sm font-medium text-red-accent mb-4 animate-fade-in-up">PORTFOLIO</p>
-            <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-              Real results for real businesses
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-              We measure our success by our clients' success. Here are some of the 
-              brands we've helped scale to new heights.
-            </p>
+            <ScrollReveal>
+              <p className="text-sm font-medium text-red-accent mb-4">PORTFOLIO</p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h1 className="text-4xl md:text-6xl font-black leading-tight mb-6">
+                Real results for real businesses
+              </h1>
+            </ScrollReveal>
+            <ScrollReveal delay={0.2}>
+              <p className="text-lg md:text-xl text-muted-foreground">
+                We measure our success by our clients' success. Here are some of the 
+                brands we've helped scale to new heights.
+              </p>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -82,35 +90,36 @@ export const Portfolio = () => {
         <div className="container-narrow">
           <div className="space-y-16">
             {caseStudies.map((study, index) => (
-              <div 
-                key={study.id} 
-                className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
-              >
-                <div className={`${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <div className="aspect-[4/3] bg-secondary flex items-center justify-center">
-                    <TrendingUp size={80} strokeWidth={1} className="text-red-accent/30" />
+              <ScrollReveal key={study.id}>
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                  <div className={`${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                    <div className="aspect-[4/3] bg-secondary flex items-center justify-center">
+                      <TrendingUp size={80} strokeWidth={1} className="text-red-accent/30" />
+                    </div>
+                  </div>
+                  <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-sm font-medium text-muted-foreground">{study.category}</span>
+                      <span className="text-red-accent">•</span>
+                      <span className="text-sm font-medium text-muted-foreground">{study.service}</span>
+                    </div>
+                    <h2 className="text-3xl md:text-4xl font-black mb-2">{study.title}</h2>
+                    <p className="text-xl font-bold text-red-accent mb-4">{study.result}</p>
+                    <p className="text-muted-foreground mb-8">{study.description}</p>
+                    
+                    <div className="grid grid-cols-3 gap-4 mb-8">
+                      {study.metrics.map((metric) => (
+                        <div key={metric.label} className="text-center p-4 bg-secondary">
+                          <p className="text-2xl md:text-3xl font-black">
+                            <AnimatedCounter value={metric.value} />
+                          </p>
+                          <p className="text-sm text-muted-foreground">{metric.label}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-                <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-sm font-medium text-muted-foreground">{study.category}</span>
-                    <span className="text-red-accent">•</span>
-                    <span className="text-sm font-medium text-muted-foreground">{study.service}</span>
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-black mb-2">{study.title}</h2>
-                  <p className="text-xl font-bold text-red-accent mb-4">{study.result}</p>
-                  <p className="text-muted-foreground mb-8">{study.description}</p>
-                  
-                  <div className="grid grid-cols-3 gap-4 mb-8">
-                    {study.metrics.map((metric) => (
-                      <div key={metric.label} className="text-center p-4 bg-secondary">
-                        <p className="text-2xl md:text-3xl font-black">{metric.value}</p>
-                        <p className="text-sm text-muted-foreground">{metric.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -119,10 +128,12 @@ export const Portfolio = () => {
       {/* Results Summary */}
       <section className="section-padding bg-secondary">
         <div className="container-narrow">
-          <div className="text-center mb-16">
-            <p className="text-sm font-medium text-red-accent mb-4">BY THE NUMBERS</p>
-            <h2 className="text-3xl md:text-5xl font-black">Our collective impact</h2>
-          </div>
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <p className="text-sm font-medium text-red-accent mb-4">BY THE NUMBERS</p>
+              <h2 className="text-3xl md:text-5xl font-black">Our collective impact</h2>
+            </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -130,11 +141,15 @@ export const Portfolio = () => {
               { value: "500%", label: "Average ROAS" },
               { value: "50+", label: "Brands Scaled" },
               { value: "95%", label: "Client Retention" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <p className="text-4xl md:text-5xl font-black mb-2">{stat.value}</p>
-                <p className="text-muted-foreground">{stat.label}</p>
-              </div>
+            ].map((stat, i) => (
+              <ScrollReveal key={stat.label} delay={i * 0.1}>
+                <div className="text-center">
+                  <p className="text-4xl md:text-5xl font-black mb-2">
+                    <AnimatedCounter value={stat.value} />
+                  </p>
+                  <p className="text-muted-foreground">{stat.label}</p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -143,22 +158,24 @@ export const Portfolio = () => {
       {/* CTA */}
       <section className="section-padding bg-foreground text-background">
         <div className="container-narrow text-center">
-          <h2 className="text-3xl md:text-5xl font-black mb-6">
-            Want results like these?
-          </h2>
-          <p className="text-background/70 text-lg mb-8 max-w-2xl mx-auto">
-            Apply to work with us and let's discuss how we can help your business grow.
-          </p>
-          <Button 
-            size="xl" 
-            className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90"
-            asChild
-          >
-            <Link to="/apply">
-              Apply Now
-              <ArrowRight size={20} />
-            </Link>
-          </Button>
+          <ScrollReveal>
+            <h2 className="text-3xl md:text-5xl font-black mb-6">
+              Want results like these?
+            </h2>
+            <p className="text-background/70 text-lg mb-8 max-w-2xl mx-auto">
+              Apply to work with us and let's discuss how we can help your business grow.
+            </p>
+            <Button 
+              size="xl" 
+              className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90"
+              asChild
+            >
+              <Link to="/apply">
+                Apply Now
+                <ArrowRight size={20} />
+              </Link>
+            </Button>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>
