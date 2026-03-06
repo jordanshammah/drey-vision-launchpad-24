@@ -18,8 +18,8 @@ const services = [
   },
   {
     icon: Users,
-    title: "Social Media Management",
-    description: "Full-service content creation, community management, and brand building.",
+    title: "Web Development",
+    description: "High-converting, mobile-optimized websites that build trust and turn visitors into clients.",
   },
 ];
 
