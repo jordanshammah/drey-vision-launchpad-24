@@ -14,15 +14,15 @@ const advertisingFeatures = [
   "Scaling Strategies",
 ];
 
-const managementFeatures = [
-  "Content Strategy & Planning",
-  "Daily Posting & Scheduling",
-  "Community Management",
-  "Influencer Outreach",
-  "Brand Voice Development",
-  "Monthly Analytics Reports",
-  "Story & Reel Creation",
-  "Engagement Growth Tactics",
+const webDevFeatures = [
+  "Custom website design tailored to your brand",
+  "Mobile-optimized and fast-loading pages",
+  "Conversion-focused layout to turn visitors into leads",
+  "Integration with booking systems, WhatsApp, or forms",
+  "SEO-friendly site structure",
+  "Monthly website maintenance and updates",
+  "Security monitoring and backups",
+  "Performance optimization",
 ];
 
 export const Services = () => {
@@ -96,14 +96,14 @@ export const Services = () => {
         <div className="border-t border-border"></div>
       </div>
 
-      {/* Social Media Management */}
-      <section className="section-padding" id="management">
+      {/* Web Development */}
+      <section className="section-padding" id="web-development">
         <div className="container-narrow">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="order-2 lg:order-1 bg-secondary p-8 md:p-12">
               <h3 className="text-xl font-bold mb-6">What's Included</h3>
               <ul className="space-y-4">
-                {managementFeatures.map((feature) => (
+                {webDevFeatures.map((feature) => (
                   <li key={feature} className="flex items-center gap-3">
                     <CheckCircle size={20} className="shrink-0 text-red-accent" />
                     <span>{feature}</span>
@@ -116,16 +116,16 @@ export const Services = () => {
                 <div className="w-16 h-16 bg-red-accent text-red-accent-foreground flex items-center justify-center">
                   <Users size={32} />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-black">Social Media Management</h2>
+                <h2 className="text-3xl md:text-4xl font-black">Web Development</h2>
               </div>
               <p className="text-lg text-muted-foreground mb-8">
-                Build a brand presence that attracts, engages, and converts. We handle 
-                everything from content creation to community management.
+                We design and build high-converting websites that make your brand look 
+                premium, build trust with customers, and turn visitors into paying clients.
               </p>
               <p className="text-muted-foreground mb-8">
-                Consistent, high-quality content is the foundation of a strong brand. 
-                Our team creates scroll-stopping content that resonates with your 
-                audience and drives real engagement.
+                Your website is your digital storefront. We craft fast, modern, and 
+                conversion-focused sites that work seamlessly across all devices and 
+                help you stand out from the competition.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="hero" size="lg" className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90" asChild>
