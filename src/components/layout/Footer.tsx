@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <img src={dvmLogo} alt="Drey Vision Marketing" className="h-12 w-auto mb-4" />
+            <img src={dvmLogo} alt="Drey Vision Marketing" className="h-[72px] w-auto mb-4" />
             <p className="text-background/70 max-w-md">
               Where digital strategy meets real growth. We help ambitious brands 
               scale through strategic social media advertising and management.
