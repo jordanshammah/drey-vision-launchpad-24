@@ -44,7 +44,7 @@ const caseStudies = [
   metrics: [
   { label: "ROAS", value: "12.97x" },
   { label: "Generated", value: "+$89K" },
-  { label: "Lowered CPR", value: "+$7" }]
+  { label: "AVG CPR", value: "+$7" }]
 
 },
 {
