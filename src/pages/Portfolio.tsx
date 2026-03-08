@@ -51,15 +51,15 @@ const caseStudies = [
 },
 {
   id: "apex-coaching",
-  title: "Apex Business Coaching",
-  category: "Professional Services",
+  title: "",
+  category: "Vacation Rental Management Company",
   service: "Paid Advertising",
   result: "Fully booked within 90 days",
-  description: "Positioned a business coach as an industry authority and filled their high-ticket program through targeted LinkedIn and Facebook campaigns.",
+  description: "Is your business getting 40+ inquiries on a single product / service in 24 hours? We make that happen at DVM.",
   metrics: [
-  { label: "Lead Quality", value: "+200%" },
+  { label: "Acquired leads", value: "200%+" },
   { label: "Program Fill", value: "100%" },
-  { label: "Revenue", value: "+$800K" }]
+  { label: "Revenue increase", value: "$17K+" }]
 
 }];
 
