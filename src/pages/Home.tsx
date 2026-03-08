@@ -165,8 +165,8 @@ export const Home = () => {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-foreground text-background p-8 flex flex-col justify-end aspect-square">
-                  <img src={rocketDashboardIcon} alt="Fast Execution" className="mb-4 w-8 h-8" />
+                <div className="bg-foreground text-background p-4 flex flex-col items-center justify-center aspect-square">
+                  <img src={rocketDashboardIcon} alt="Fast Execution" className="mb-2 w-full max-w-[80%] h-auto object-contain" />
                   <p className="font-bold">Fast Execution</p>
                 </div>
                 <div className="bg-foreground text-background p-8 flex flex-col justify-end aspect-square mt-8">
