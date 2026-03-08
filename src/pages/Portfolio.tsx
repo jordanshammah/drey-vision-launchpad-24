@@ -36,11 +36,11 @@ const caseStudies = [
   },
   {
     id: "urban-eats",
-    title: "Urban Eats",
+    title: "",
     category: "E-Commerce Brand",
     service: "Paid Advertising ",
     result: "Generating an extra $89k in revenue? That's our specialty!",
-    description: "Built a loyal local following for a restaurant chain through consistent, engaging content that drove real-world visits.",
+    description: "Developed a well-researched client acquisition funnel for an e-commerce brand, leveraging data-driven strategies to drive measurable sales and real-world results.",
     metrics: [
       { label: "ROAS", value: "12.97x" },
       { label: "Generated", value: "+$89K" },
