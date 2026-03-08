@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,12 +8,20 @@ import { Layout } from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
-const budgetRanges = [
+const budgetRangesUSD = [
   "$1,000 - $2,500/month",
   "$2,500 - $5,000/month",
   "$5,000 - $10,000/month",
   "$10,000 - $25,000/month",
   "$25,000+/month",
+];
+
+const budgetRangesKES = [
+  "KSh 130,000 - KSh 325,000/month",
+  "KSh 325,000 - KSh 650,000/month",
+  "KSh 650,000 - KSh 1,300,000/month",
+  "KSh 1,300,000 - KSh 3,250,000/month",
+  "KSh 3,250,000+/month",
 ];
 
 const businessTypes = [
@@ -30,6 +38,8 @@ const businessTypes = [
 export const Apply = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [currency, setCurrency] = useState<"USD" | "KES">("USD");
+  const budgetRanges = currency === "USD" ? budgetRangesUSD : budgetRangesKES;
   const [formData, setFormData] = useState({
     name: "", email: "", businessName: "", businessType: "", website: "",
     instagram: "", facebook: "", tiktok: "", linkedin: "",
@@ -166,7 +176,33 @@ export const Apply = () => {
                 <h2 className="text-2xl font-bold mb-6">Budget & Goals</h2>
                 <div className="space-y-6">
                   <div>
-                    <Label className="text-sm font-medium mb-4 block">Monthly Marketing Budget *</Label>
+                    <div className="flex items-center justify-between mb-4">
+                      <Label className="text-sm font-medium">Monthly Marketing Budget *</Label>
+                      <div className="flex items-center gap-2 border border-border rounded-md p-1">
+                        <button
+                          type="button"
+                          onClick={() => { setCurrency("USD"); setFormData(prev => ({ ...prev, budgetRange: "" })); }}
+                          className={`px-3 py-1 text-xs font-semibold rounded transition-colors ${
+                            currency === "USD"
+                              ? "bg-red-accent text-red-accent-foreground"
+                              : "text-muted-foreground hover:text-foreground"
+                          }`}
+                        >
+                          USD
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => { setCurrency("KES"); setFormData(prev => ({ ...prev, budgetRange: "" })); }}
+                          className={`px-3 py-1 text-xs font-semibold rounded transition-colors ${
+                            currency === "KES"
+                              ? "bg-red-accent text-red-accent-foreground"
+                              : "text-muted-foreground hover:text-foreground"
+                          }`}
+                        >
+                          KES
+                        </button>
+                      </div>
+                    </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {budgetRanges.map((range) => (
                         <label
