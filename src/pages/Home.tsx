@@ -166,7 +166,7 @@ export const Home = () => {
             <ScrollReveal delay={0.2}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-foreground text-background p-8 flex flex-col justify-end aspect-square">
-                  <Zap size={32} className="mb-4 text-red-accent" />
+                  <img src={rocketDashboardIcon} alt="Fast Execution" className="mb-4 w-8 h-8" />
                   <p className="font-bold">Fast Execution</p>
                 </div>
                 <div className="bg-foreground text-background p-8 flex flex-col justify-end aspect-square mt-8">
