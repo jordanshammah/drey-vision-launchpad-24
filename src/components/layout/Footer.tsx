@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Instagram } from "lucide-react";
 import dvmLogo from "@/assets/dvm-logo.jpeg";
 
 export const Footer = () => {
