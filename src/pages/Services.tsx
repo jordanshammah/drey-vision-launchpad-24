@@ -5,26 +5,26 @@ import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
 const advertisingFeatures = [
-  "Facebook & Instagram Ads",
-  "TikTok Advertising",
-  "Audience Research & Targeting",
-  "Creative Strategy & Testing",
-  "Conversion Tracking Setup",
-  "Weekly Performance Reports",
-  "Retargeting Campaigns",
-  "Scaling Strategies",
-];
+"Facebook & Instagram Ads",
+"TikTok Advertising",
+"Audience Research & Targeting",
+"Creative Strategy & Testing",
+"Conversion Tracking Setup",
+"Weekly Performance Reports",
+"Retargeting Campaigns",
+"Scaling Strategies"];
+
 
 const webDevFeatures = [
-  "Custom website design tailored to your brand",
-  "Mobile-optimized and fast-loading pages",
-  "Conversion-focused layout to turn visitors into leads",
-  "Integration with booking systems, WhatsApp, or forms",
-  "SEO-friendly site structure",
-  "Monthly website maintenance and updates",
-  "Security monitoring and backups",
-  "Performance optimization",
-];
+"Custom website design tailored to your brand",
+"Mobile-optimized and fast-loading pages",
+"Conversion-focused layout to turn visitors into leads",
+"Integration with booking systems, WhatsApp, or forms",
+"SEO-friendly site structure",
+"Monthly website maintenance and updates",
+"Security monitoring and backups",
+"Performance optimization"];
+
 
 export const Services = () => {
   return (
@@ -64,8 +64,8 @@ export const Services = () => {
                   <h2 className="text-3xl md:text-4xl font-black">Social Media Advertising</h2>
                 </div>
                 <p className="text-lg text-muted-foreground mb-8">
-                  Turn your ad spend into predictable revenue. Our data-driven approach 
-                  to paid social ensures every dollar works hard for your business.
+                  Turn your ad spend into predictable revenue. Our data-driven approach to paid social media advertising ensures every penny works hard for your business.
+                
                 </p>
                 <p className="text-muted-foreground mb-8">
                   We don't just run ads—we build conversion machines. From creative 
@@ -89,12 +89,12 @@ export const Services = () => {
               <div className="bg-secondary p-8 md:p-12">
                 <h3 className="text-xl font-bold mb-6">What's Included</h3>
                 <ul className="space-y-4">
-                  {advertisingFeatures.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3">
+                  {advertisingFeatures.map((feature) =>
+                  <li key={feature} className="flex items-center gap-3">
                       <CheckCircle size={20} className="shrink-0 text-red-accent" />
                       <span>{feature}</span>
                     </li>
-                  ))}
+                  )}
                 </ul>
               </div>
             </ScrollReveal>
@@ -115,12 +115,12 @@ export const Services = () => {
               <div className="order-2 lg:order-1 bg-secondary p-8 md:p-12">
                 <h3 className="text-xl font-bold mb-6">What's Included</h3>
                 <ul className="space-y-4">
-                  {webDevFeatures.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3">
+                  {webDevFeatures.map((feature) =>
+                  <li key={feature} className="flex items-center gap-3">
                       <CheckCircle size={20} className="shrink-0 text-red-accent" />
                       <span>{feature}</span>
                     </li>
-                  ))}
+                  )}
                 </ul>
               </div>
             </ScrollReveal>
@@ -170,12 +170,12 @@ export const Services = () => {
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
-              { icon: MessageCircle, title: "Discovery Call", description: "We learn about your business, goals, and challenges." },
-              { icon: Target, title: "Strategy", description: "Custom strategy developed for your specific needs." },
-              { icon: Megaphone, title: "Execution", description: "We launch and manage everything for you." },
-              { icon: BarChart3, title: "Optimize", description: "Continuous testing and improvement for maximum ROI." },
-            ].map((step, index) => (
-              <ScrollReveal key={step.title} delay={index * 0.1}>
+            { icon: MessageCircle, title: "Discovery Call", description: "We learn about your business, goals, and challenges." },
+            { icon: Target, title: "Strategy", description: "Custom strategy developed for your specific needs." },
+            { icon: Megaphone, title: "Execution", description: "We launch and manage everything for you." },
+            { icon: BarChart3, title: "Optimize", description: "Continuous testing and improvement for maximum ROI." }].
+            map((step, index) =>
+            <ScrollReveal key={step.title} delay={index * 0.1}>
                 <div className="relative">
                   <div className="text-6xl font-black text-red-accent/20 mb-4">0{index + 1}</div>
                   <step.icon size={32} className="mb-4" strokeWidth={1.5} />
@@ -183,7 +183,7 @@ export const Services = () => {
                   <p className="text-muted-foreground text-sm">{step.description}</p>
                 </div>
               </ScrollReveal>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -198,11 +198,11 @@ export const Services = () => {
             <p className="text-background/70 text-lg mb-8 max-w-2xl mx-auto">
               Book a free strategy call to discuss how we can help your business achieve its goals.
             </p>
-            <Button 
-              size="xl" 
+            <Button
+              size="xl"
               className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90"
-              asChild
-            >
+              asChild>
+              
               <Link to="/apply">
                 Apply to Work With Us
                 <ArrowRight size={20} />
@@ -211,6 +211,6 @@ export const Services = () => {
           </ScrollReveal>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>);
+
 };
