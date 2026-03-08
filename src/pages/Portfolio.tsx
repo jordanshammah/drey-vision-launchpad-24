@@ -37,14 +37,14 @@ const caseStudies = [
   {
     id: "urban-eats",
     title: "Urban Eats",
-    category: "Restaurant Chain",
-    service: "Social Media Management",
-    result: "85% increase in foot traffic",
+    category: "E-Commerce Brand",
+    service: "Paid Advertising ",
+    result: "Generating an extra $89k in revenue? That's our specialty!",
     description: "Built a loyal local following for a restaurant chain through consistent, engaging content that drove real-world visits.",
     metrics: [
-      { label: "Engagement", value: "+420%" },
-      { label: "Followers", value: "+25K" },
-      { label: "Visits", value: "+85%" },
+      { label: "ROAS", value: "12.97x" },
+      { label: "Generated", value: "+$89K" },
+      { label: "Lowered CPR", value: "+$7" },
     ],
   },
   {
@@ -79,8 +79,7 @@ export const Portfolio = () => {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="text-lg md:text-xl text-muted-foreground">
-                We measure our success by our clients' success. Here are some of the 
-                brands we've helped scale to new heights.
+From increasing engagement to improving ROI, we provide the tools and expertise to help you succeed in a competitive digital landscape.
               </p>
             </ScrollReveal>
           </div>
