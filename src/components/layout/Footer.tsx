@@ -42,9 +42,19 @@ export const Footer = () => {
                 <Link
                   to="/apply"
                   className="text-red-accent font-semibold hover:underline">
-                  
                   Apply to Work With Us →
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/dreyvisionmarketing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-background transition-colors"
+                >
+                  <Instagram size={20} />
+                  <span>Instagram</span>
+                </a>
               </li>
             </ul>
           </div>
