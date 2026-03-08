@@ -54,7 +54,7 @@ const caseStudies = [
   title: "",
   category: "Vacation Rental Management Company",
   service: "Paid Advertising",
-  result: "Fully booked within 90 days",
+  result: "Fully booked within 30 days",
   description: "Is your business getting 40+ inquiries on a single product / service in 24 hours? We make that happen at DVM.",
   metrics: [
   { label: "Acquired leads", value: "200%+" },
