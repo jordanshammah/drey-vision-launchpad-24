@@ -36,27 +36,18 @@ export const Footer = () => {
           {/* Contact */}
           <div>
             <h4 className="font-semibold mb-4">Get In Touch</h4>
-            <ul className="space-y-2 text-background/70">
-              <li>​</li>
-              <li>
-                <Link
-                  to="/apply"
-                  className="text-red-accent font-semibold hover:underline">
-                  Apply to Work With Us →
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/dreyvisionmarketing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-background transition-colors">
-                  
-                  <Instagram size={20} />
-                  <span>​</span>
-                </a>
-              </li>
-            </ul>
+            <a
+              href="https://www.instagram.com/dreyvisionmarketing/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-background/70 hover:text-background transition-colors mb-4">
+              <Instagram size={20} />
+            </a>
+            <Link
+              to="/apply"
+              className="block text-red-accent font-semibold hover:underline">
+              Apply to Work With Us →
+            </Link>
           </div>
         </div>
 
