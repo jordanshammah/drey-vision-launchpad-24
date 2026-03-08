@@ -176,7 +176,33 @@ export const Apply = () => {
                 <h2 className="text-2xl font-bold mb-6">Budget & Goals</h2>
                 <div className="space-y-6">
                   <div>
-                    <Label className="text-sm font-medium mb-4 block">Monthly Marketing Budget *</Label>
+                    <div className="flex items-center justify-between mb-4">
+                      <Label className="text-sm font-medium">Monthly Marketing Budget *</Label>
+                      <div className="flex items-center gap-2 border border-border rounded-md p-1">
+                        <button
+                          type="button"
+                          onClick={() => { setCurrency("USD"); setFormData(prev => ({ ...prev, budgetRange: "" })); }}
+                          className={`px-3 py-1 text-xs font-semibold rounded transition-colors ${
+                            currency === "USD"
+                              ? "bg-red-accent text-red-accent-foreground"
+                              : "text-muted-foreground hover:text-foreground"
+                          }`}
+                        >
+                          USD
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => { setCurrency("KES"); setFormData(prev => ({ ...prev, budgetRange: "" })); }}
+                          className={`px-3 py-1 text-xs font-semibold rounded transition-colors ${
+                            currency === "KES"
+                              ? "bg-red-accent text-red-accent-foreground"
+                              : "text-muted-foreground hover:text-foreground"
+                          }`}
+                        >
+                          KES
+                        </button>
+                      </div>
+                    </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {budgetRanges.map((range) => (
                         <label
