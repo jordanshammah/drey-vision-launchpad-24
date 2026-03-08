@@ -8,37 +8,37 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 
 const stats = [
-  { value: "500%", label: "Average ROAS" },
-  { value: "50+", label: "Brands Scaled" },
-  { value: "$10M+", label: "Revenue Generated" },
-  { value: "24/7", label: "Support" },
-];
+{ value: "500%", label: "Average ROAS" },
+{ value: "50+", label: "Brands Scaled" },
+{ value: "$10M+", label: "Revenue Generated" },
+{ value: "24/7", label: "Support" }];
+
 
 const services = [
-  {
-    icon: TrendingUp,
-    title: "Social Media Advertising",
-    description: "Data-driven paid campaigns that convert. Facebook, Instagram, TikTok, and beyond.",
-  },
-  {
-    icon: Users,
-    title: "Web Development",
-    description: "High-converting, mobile-optimized websites that build trust and turn visitors into clients.",
-  },
-];
+{
+  icon: TrendingUp,
+  title: "Social Media Advertising",
+  description: "Data-driven paid campaigns that convert. Facebook, Instagram, TikTok, and beyond."
+},
+{
+  icon: Users,
+  title: "Web Development",
+  description: "High-converting, mobile-optimized websites that build trust and turn visitors into clients."
+}];
+
 
 const testimonials = [
-  {
-    quote: "DVM transformed our online presence. We went from struggling to get leads to having more clients than we can handle.",
-    author: "Sarah Chen",
-    role: "Founder, Luxe Interiors",
-  },
-  {
-    quote: "Professional, results-driven, and genuinely invested in our success. The best decision we made for our brand.",
-    author: "Marcus Johnson",
-    role: "CEO, FitLife Nutrition",
-  },
-];
+{
+  quote: "DVM transformed our online presence. We went from struggling to get leads to having more clients than we can handle.",
+  author: "Sarah Chen",
+  role: "Founder, Luxe Interiors"
+},
+{
+  quote: "Professional, results-driven, and genuinely invested in our success. The best decision we made for our brand.",
+  author: "Marcus Johnson",
+  role: "CEO, FitLife Nutrition"
+}];
+
 
 export const Home = () => {
   return (
@@ -60,8 +60,8 @@ export const Home = () => {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8">
-                We help ambitious brands scale through strategic social media 
-                advertising and management. No fluff. Just results.
+                ​We scale ambitious brands through strategic social media advertising and conversion-focused web development. No fluff. Just results.
+              
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.3}>
@@ -85,8 +85,8 @@ export const Home = () => {
       <section className="bg-foreground text-background section-padding">
         <div className="container-narrow">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {stats.map((stat, i) => (
-              <ScrollReveal key={stat.label} delay={i * 0.1}>
+            {stats.map((stat, i) =>
+            <ScrollReveal key={stat.label} delay={i * 0.1}>
                 <div className="text-center md:text-left">
                   <p className="text-3xl md:text-5xl font-black mb-2">
                     <AnimatedCounter value={stat.value} />
@@ -94,7 +94,7 @@ export const Home = () => {
                   <p className="text-background/60 text-sm md:text-base">{stat.label}</p>
                 </div>
               </ScrollReveal>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -115,21 +115,21 @@ export const Home = () => {
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service, i) => (
-              <ScrollReveal key={service.title} delay={i * 0.15}>
+            {services.map((service, i) =>
+            <ScrollReveal key={service.title} delay={i * 0.15}>
                 <div className="group p-8 md:p-12 border-2 border-border hover:border-foreground transition-colors h-full">
                   <service.icon size={40} className="mb-6 text-red-accent" strokeWidth={1.5} />
                   <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
                   <p className="text-muted-foreground mb-6">{service.description}</p>
-                  <Link 
-                    to="/services" 
-                    className="inline-flex items-center gap-2 font-semibold group-hover:gap-4 transition-all"
-                  >
+                  <Link
+                  to="/services"
+                  className="inline-flex items-center gap-2 font-semibold group-hover:gap-4 transition-all">
+                  
                     Learn More <ArrowRight size={18} />
                   </Link>
                 </div>
               </ScrollReveal>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -151,16 +151,16 @@ export const Home = () => {
                 </p>
                 <ul className="space-y-4">
                   {[
-                    "Transparent reporting & communication",
-                    "Proven frameworks that deliver ROI",
-                    "Dedicated strategist for your account",
-                    "No long-term contracts required",
-                  ].map((item) => (
-                    <li key={item} className="flex items-center gap-3">
+                  "Transparent reporting & communication",
+                  "Proven frameworks that deliver ROI",
+                  "Dedicated strategist for your account",
+                  "No long-term contracts required"].
+                  map((item) =>
+                  <li key={item} className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-red-accent"></div>
                       <span>{item}</span>
                     </li>
-                  ))}
+                  )}
                 </ul>
               </div>
             </ScrollReveal>
@@ -191,8 +191,8 @@ export const Home = () => {
           </ScrollReveal>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, i) => (
-              <ScrollReveal key={testimonial.author} delay={i * 0.15}>
+            {testimonials.map((testimonial, i) =>
+            <ScrollReveal key={testimonial.author} delay={i * 0.15}>
                 <div className="p-8 md:p-12 border-2 border-border h-full">
                   <p className="text-xl md:text-2xl font-medium mb-8 leading-relaxed">
                     "{testimonial.quote}"
@@ -203,7 +203,7 @@ export const Home = () => {
                   </div>
                 </div>
               </ScrollReveal>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -220,11 +220,11 @@ export const Home = () => {
               Apply today to see if we're a good fit.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="xl" 
+              <Button
+                size="xl"
                 className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90"
-                asChild
-              >
+                asChild>
+                
                 <Link to="/apply">
                   Apply to Work With Us
                   <ArrowRight size={20} />
@@ -234,6 +234,6 @@ export const Home = () => {
           </ScrollReveal>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>);
+
 };
