@@ -13,7 +13,7 @@ const caseStudies = [
     category: "Interior Design",
     service: "Paid Advertising",
     result: "320% increase in qualified leads",
-    description: "Transformed a struggling local interior design firm into a booked-out luxury brand through strategic Facebook and Instagram advertising.",
+    description: "Transformed a struggling local interior design firm into a booked-out luxury brand through strategic Facebook and Instagram advertising. 500 New message inquiries within their first week working with us.",
     metrics: [
       { label: "ROAS", value: "6.2x" },
       { label: "Lead Cost", value: "-91%" },
