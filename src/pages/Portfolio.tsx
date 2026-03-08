@@ -140,7 +140,7 @@ export const Portfolio = () => {
               { value: "$2M+", label: "Revenue Generated" },
               { value: "500%", label: "Average ROAS" },
               { value: "50+", label: "Brands Scaled" },
-              { value: "94%", label: "Client Retention" },
+              { value: "96%", label: "Client Retention" },
             ].map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 0.1}>
                 <div className="text-center">
