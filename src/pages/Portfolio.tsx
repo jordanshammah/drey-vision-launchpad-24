@@ -24,14 +24,14 @@ const caseStudies = [
 },
 {
   id: "fitlife-nutrition",
-  title: "FitLife Nutrition",
-  category: "E-commerce",
-  service: "Paid Advertising + Management",
-  result: "$500K monthly revenue achieved",
-  description: "Scaled a supplement brand from $50K to $500K in monthly revenue through a combination of paid advertising and organic social growth.",
+  title: "",
+  category: "Product Supplier",
+  service: "Paid Advertising + Website Building & Management",
+  result: "$50K monthly revenue achieved",
+  description: "From 290 messaging conversations at KSh 300+ per result to 26,741 link clicks at as low as KSh 0.48 — a 99.8% drop in cost per result and a 9,117% increase in reach. By building a structured client acquisition website and optimising their ad funnel, we scaled our client's online reach and drove results that speak for themselves.",
   metrics: [
-  { label: "ROAS", value: "4.8x" },
-  { label: "Followers", value: "+150K" },
+  { label: "Increase in reach", value: "9000+%" },
+  { label: "Drop in CPR", value: "99.8%" },
   { label: "Revenue", value: "10x" }]
 
 },
