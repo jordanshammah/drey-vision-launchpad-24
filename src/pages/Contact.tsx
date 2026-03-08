@@ -65,7 +65,7 @@ export const Contact = () => {
                   {[
                     { icon: Mail, title: "Email Us", desc: "hello@dreyvision.com" },
                     { icon: MapPin, title: "Location", desc: "Remote-first, serving clients globally" },
-                    { icon: Clock, title: "Response Time", desc: "We typically respond within 24 hours" },
+                    { icon: Clock, title: "Response Time", desc: "We typically respond within 2-3 business days" },
                   ].map((item) => (
                     <div key={item.title} className="flex items-start gap-4">
                       <div className="w-12 h-12 bg-foreground text-background flex items-center justify-center shrink-0">
