@@ -30,13 +30,13 @@ const services = [
 const testimonials = [
 {
   quote: "Super easy to work with and very transparent. We always knew what was happening with our campaigns.",
-  author: "Sarah Chen",
+  author: "Sarah .C",
   role: "Founder, Luxe Interiors"
 },
 {
   quote: "Professional, results-driven, and genuinely invested in our success. The best decision we made for our brand.",
-  author: "Marcus Johnson",
-  role: "CEO, FitLife Nutrition"
+  author: "Ryan Jordan",
+  role: "CEO, Masterful"
 }];
 
 
