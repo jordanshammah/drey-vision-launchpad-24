@@ -37,7 +37,9 @@ const businessTypes = [
 
 export const Apply = () => {
   const { toast } = useToast();
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [currency, setCurrency] = useState<"USD" | "KES">("USD");
+  const budgetRanges = currency === "USD" ? budgetRangesUSD : budgetRangesKES;
   const [formData, setFormData] = useState({
     name: "", email: "", businessName: "", businessType: "", website: "",
     instagram: "", facebook: "", tiktok: "", linkedin: "",
