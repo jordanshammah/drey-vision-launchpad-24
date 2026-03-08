@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, TrendingUp, Users, Zap, Target } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, Target } from "lucide-react";
+import rocketDashboardIcon from "@/assets/rocket-dashboard-icon.png";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
@@ -165,7 +166,7 @@ export const Home = () => {
             <ScrollReveal delay={0.2}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-foreground text-background p-8 flex flex-col justify-end aspect-square">
-                  <Zap size={32} className="mb-4 text-red-accent" />
+                  <img src={rocketDashboardIcon} alt="Fast Execution" className="mb-4 w-8 h-8" />
                   <p className="font-bold">Fast Execution</p>
                 </div>
                 <div className="bg-foreground text-background p-8 flex flex-col justify-end aspect-square mt-8">
