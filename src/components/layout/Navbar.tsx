@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import dvmLogo from "@/assets/dvm-logo.jpeg";
+import dvmLogo from "@/assets/dvm-logo-transparent.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
