@@ -11,7 +11,7 @@ const stats = [
 { value: "500%", label: "Average ROAS" },
 { value: "50+", label: "Brands Scaled" },
 { value: "$2M+", label: "Revenue Generated" },
-{ value: "24/7", label: "Support" }];
+{ value: "$500k+", label: "Ad Spend Managed" }];
 
 
 const services = [
