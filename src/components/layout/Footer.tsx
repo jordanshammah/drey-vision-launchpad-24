@@ -10,8 +10,8 @@ export const Footer = () => {
           <div className="md:col-span-2">
             <img src={dvmLogo} alt="Drey Vision Marketing" className="h-[72px] w-auto mb-4" />
             <p className="text-background/70 max-w-md">
-              Where digital strategy meets real growth. We help ambitious brands 
-              scale through strategic social media advertising and management.
+              Where digital strategy meets real growth. We help ambitious brands scale through strategic social media advertising and conversion focused web development.
+            
             </p>
           </div>
 
@@ -19,16 +19,16 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {["About", "Services", "Portfolio", "Pricing", "Contact"].map((item) => (
-                <li key={item}>
+              {["About", "Services", "Portfolio", "Pricing", "Contact"].map((item) =>
+              <li key={item}>
                   <Link
-                    to={`/${item.toLowerCase()}`}
-                    className="text-background/70 hover:text-background transition-colors"
-                  >
+                  to={`/${item.toLowerCase()}`}
+                  className="text-background/70 hover:text-background transition-colors">
+                  
                     {item}
                   </Link>
                 </li>
-              ))}
+              )}
             </ul>
           </div>
 
@@ -38,10 +38,10 @@ export const Footer = () => {
             <ul className="space-y-2 text-background/70">
               <li>hello@dreyvision.com</li>
               <li>
-                <Link 
-                  to="/apply" 
-                  className="text-red-accent font-semibold hover:underline"
-                >
+                <Link
+                  to="/apply"
+                  className="text-red-accent font-semibold hover:underline">
+                  
                   Apply to Work With Us →
                 </Link>
               </li>
@@ -59,6 +59,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 };
