@@ -8,15 +8,15 @@ import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 const caseStudies = [
   {
     id: "luxe-interiors",
-    title: "Luxe Interiors",
+    title: "Queens Furniture",
     category: "Interior Design",
     service: "Paid Advertising",
     result: "320% increase in qualified leads",
     description: "Transformed a struggling local interior design firm into a booked-out luxury brand through strategic Facebook and Instagram advertising.",
     metrics: [
       { label: "ROAS", value: "6.2x" },
-      { label: "Lead Cost", value: "-68%" },
-      { label: "Revenue", value: "+$1.2M" },
+      { label: "Lead Cost", value: "-91%" },
+      { label: "Revenue", value: "+$120k" },
     ],
   },
   {
