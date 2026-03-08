@@ -37,7 +37,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Get In Touch</h4>
             <ul className="space-y-2 text-background/70">
-              <li>hello@dreyvision.com</li>
+              <li>​</li>
               <li>
                 <Link
                   to="/apply"
