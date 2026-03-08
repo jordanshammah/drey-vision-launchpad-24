@@ -50,10 +50,10 @@ export const Footer = () => {
                   href="https://www.instagram.com/dreyvisionmarketing"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-background transition-colors"
-                >
+                  className="inline-flex items-center gap-2 hover:text-background transition-colors">
+                  
                   <Instagram size={20} />
-                  <span>Instagram</span>
+                  <span>​</span>
                 </a>
               </li>
             </ul>
