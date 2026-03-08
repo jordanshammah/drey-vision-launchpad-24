@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import queensFurnitureResults from "@/assets/queens-furniture-results.png";
 import urbanEatsResults from "@/assets/urban-eats-results.png";
+import fitlifeNutritionResults from "@/assets/fitlife-nutrition-results.png";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
