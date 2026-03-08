@@ -138,7 +138,7 @@ From increasing engagement to improving ROI, we provide the tools and expertise 
           <ScrollReveal>
             <div className="text-center mb-16">
               <p className="text-sm font-medium text-red-accent mb-4">BY THE NUMBERS</p>
-              <h2 className="text-3xl md:text-5xl font-black">Our collective impact</h2>
+              <h2 className="text-3xl md:text-5xl font-black">Trusted by over 50 reputable brands worldwide</h2>
             </div>
           </ScrollReveal>
 
