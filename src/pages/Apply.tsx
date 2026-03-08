@@ -8,12 +8,20 @@ import { Layout } from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
-const budgetRanges = [
+const budgetRangesUSD = [
   "$1,000 - $2,500/month",
   "$2,500 - $5,000/month",
   "$5,000 - $10,000/month",
   "$10,000 - $25,000/month",
   "$25,000+/month",
+];
+
+const budgetRangesKES = [
+  "KSh 130,000 - KSh 325,000/month",
+  "KSh 325,000 - KSh 650,000/month",
+  "KSh 650,000 - KSh 1,300,000/month",
+  "KSh 1,300,000 - KSh 3,250,000/month",
+  "KSh 3,250,000+/month",
 ];
 
 const businessTypes = [
