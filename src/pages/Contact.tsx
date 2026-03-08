@@ -20,7 +20,10 @@ export const Contact = () => {
       toast({ title: "Please fill in required fields", description: "Name, email, and message are required.", variant: "destructive" });
       return;
     }
-    console.log("Contact form submitted:", formData);
+
+    const phone = "254712954629";
+    const text = `New Contact Form Submission%0A%0AName: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}%0ASubject: ${encodeURIComponent(formData.subject || "N/A")}%0AMessage: ${encodeURIComponent(formData.message)}`;
+    window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
     setIsSubmitted(true);
   };
 
