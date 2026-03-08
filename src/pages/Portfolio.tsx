@@ -79,8 +79,7 @@ export const Portfolio = () => {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="text-lg md:text-xl text-muted-foreground">
-                We measure our success by our clients' success. Here are some of the 
-                brands we've helped scale to new heights.
+From increasing engagement to improving ROI, we provide the tools and expertise to help you succeed in a competitive digital landscape.
               </p>
             </ScrollReveal>
           </div>
