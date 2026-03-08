@@ -29,7 +29,7 @@ const services = [
 
 const testimonials = [
 {
-  quote: "DVM transformed our online presence. We went from struggling to get leads to having more clients than we can handle.",
+  quote: "Super easy to work with and very transparent. We always knew what was happening with our campaigns.",
   author: "Sarah Chen",
   role: "Founder, Luxe Interiors"
 },
