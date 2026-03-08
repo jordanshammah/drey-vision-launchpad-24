@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, TrendingUp, Users, Target } from "lucide-react";
+import { ArrowRight, TrendingUp, Users } from "lucide-react";
 import rocketDashboardIcon from "@/assets/rocket-dashboard-icon.png";
+import precisionTargetingIcon from "@/assets/precision-targeting-icon.png";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
@@ -169,8 +170,8 @@ export const Home = () => {
                   <img src={rocketDashboardIcon} alt="Fast Execution" className="mb-2 w-full max-w-[80%] h-auto object-contain" />
                   <p className="font-bold">Fast Execution</p>
                 </div>
-                <div className="bg-foreground text-background p-8 flex flex-col justify-end aspect-square mt-8">
-                  <Target size={32} className="mb-4 text-red-accent" />
+                <div className="bg-foreground text-background p-4 flex flex-col items-center justify-center aspect-square mt-8">
+                  <img src={precisionTargetingIcon} alt="Precision Targeting" className="mb-2 w-full max-w-[80%] h-auto object-contain" />
                   <p className="font-bold">Precision Targeting</p>
                 </div>
               </div>
