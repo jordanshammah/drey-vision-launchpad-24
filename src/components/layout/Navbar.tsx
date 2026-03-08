@@ -23,7 +23,7 @@ export const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={dvmLogo} alt="Drey Vision Marketing" className="h-[90px] md:h-[108px] w-auto invert" />
+            <img src={dvmLogo} alt="Drey Vision Marketing" className="h-[90px] md:h-[108px] w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
