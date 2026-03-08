@@ -137,10 +137,10 @@ export const Portfolio = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "$10M+", label: "Revenue Generated" },
+              { value: "$2M+", label: "Revenue Generated" },
               { value: "500%", label: "Average ROAS" },
               { value: "50+", label: "Brands Scaled" },
-              { value: "95%", label: "Client Retention" },
+              { value: "94%", label: "Client Retention" },
             ].map((stat, i) => (
               <ScrollReveal key={stat.label} delay={i * 0.1}>
                 <div className="text-center">
