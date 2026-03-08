@@ -10,7 +10,7 @@ import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 const stats = [
 { value: "500%", label: "Average ROAS" },
 { value: "50+", label: "Brands Scaled" },
-{ value: "$10M+", label: "Revenue Generated" },
+{ value: "$2M+", label: "Revenue Generated" },
 { value: "24/7", label: "Support" }];
 
 
