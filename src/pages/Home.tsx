@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, TrendingUp, Users, Zap, Target } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, Target } from "lucide-react";
+import rocketDashboardIcon from "@/assets/rocket-dashboard-icon.png";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
