@@ -68,9 +68,9 @@ export const Services = () => {
                 
                 </p>
                 <p className="text-muted-foreground mb-8">
-                  We don't just run ads—we build conversion machines. From creative 
-                  development to audience targeting to scaling strategies, we handle 
-                  everything so you can focus on running your business.
+                  ​We don’t just run ads, we build high-converting client acquisition funnels. From creative development to audience targeting to scaling strategies, we handle everything so you can focus on running your business.
+                
+
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button variant="hero" size="lg" className="bg-red-accent text-red-accent-foreground hover:bg-red-accent/90" asChild>
