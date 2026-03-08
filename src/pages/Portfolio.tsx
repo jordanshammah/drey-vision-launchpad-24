@@ -8,7 +8,7 @@ import { AnimatedCounter } from "@/components/animations/AnimatedCounter";
 const caseStudies = [
   {
     id: "luxe-interiors",
-    title: "Luxe Interiors",
+    title: "Queens Furniture",
     category: "Interior Design",
     service: "Paid Advertising",
     result: "320% increase in qualified leads",
