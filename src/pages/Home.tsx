@@ -30,7 +30,7 @@ const services = [
 const testimonials = [
 {
   quote: "Super easy to work with and very transparent. We always knew what was happening with our campaigns.",
-  author: "Sarah Chen",
+  author: "Sarah .C",
   role: "Founder, Luxe Interiors"
 },
 {
