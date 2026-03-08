@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
 const budgetRangesUSD = [
+  "$300 - $1,000/month",
   "$1,000 - $2,500/month",
   "$2,500 - $5,000/month",
   "$5,000 - $10,000/month",
@@ -17,6 +18,7 @@ const budgetRangesUSD = [
 ];
 
 const budgetRangesKES = [
+  "KSh 39,000 - KSh 130,000/month",
   "KSh 130,000 - KSh 325,000/month",
   "KSh 325,000 - KSh 650,000/month",
   "KSh 650,000 - KSh 1,300,000/month",
