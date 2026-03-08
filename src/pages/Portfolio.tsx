@@ -98,6 +98,8 @@ export const Portfolio = () => {
                     <div className="aspect-[4/3] bg-secondary flex items-center justify-center overflow-hidden">
                       {study.id === "luxe-interiors" ? (
                         <img src={queensFurnitureResults} alt="Queens Furniture campaign results" className="w-full h-full object-contain" />
+                      ) : study.id === "urban-eats" ? (
+                        <img src={urbanEatsResults} alt="Urban Eats campaign results" className="w-full h-full object-contain" />
                       ) : (
                         <TrendingUp size={80} strokeWidth={1} className="text-red-accent/30" />
                       )}
