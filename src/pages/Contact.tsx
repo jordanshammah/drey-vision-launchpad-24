@@ -122,6 +122,10 @@ export const Contact = () => {
                       <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="How can we help?" className="h-12" />
                     </div>
                     <div>
+                      <Label htmlFor="instagram" className="text-sm font-medium mb-2 block">Instagram Handle <span className="text-muted-foreground font-normal">(recommended)</span></Label>
+                      <Input id="instagram" name="instagram" value={formData.instagram} onChange={handleChange} placeholder="@yourhandle" className="h-12" />
+                    </div>
+                    <div>
                       <Label htmlFor="message" className="text-sm font-medium mb-2 block">Message *</Label>
                       <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us more about your inquiry..." rows={6} required />
                     </div>
