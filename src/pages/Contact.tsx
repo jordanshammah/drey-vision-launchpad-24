@@ -12,7 +12,7 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 export const Contact = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", instagram: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ export const Contact = () => {
     }
 
     const phone = "254712954629";
-    const text = `New Contact Form Submission%0A%0AName: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}%0ASubject: ${encodeURIComponent(formData.subject || "N/A")}%0AMessage: ${encodeURIComponent(formData.message)}`;
+    const text = `New Contact Form Submission%0A%0AName: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}%0ASubject: ${encodeURIComponent(formData.subject || "N/A")}%0AInstagram: ${encodeURIComponent(formData.instagram || "N/A")}%0AMessage: ${encodeURIComponent(formData.message)}`;
     window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
     setIsSubmitted(true);
   };
@@ -120,6 +120,10 @@ export const Contact = () => {
                     <div>
                       <Label htmlFor="subject" className="text-sm font-medium mb-2 block">Subject</Label>
                       <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="How can we help?" className="h-12" />
+                    </div>
+                    <div>
+                      <Label htmlFor="instagram" className="text-sm font-medium mb-2 block">Instagram Handle <span className="text-muted-foreground font-normal">(recommended)</span></Label>
+                      <Input id="instagram" name="instagram" value={formData.instagram} onChange={handleChange} placeholder="@yourhandle" className="h-12" />
                     </div>
                     <div>
                       <Label htmlFor="message" className="text-sm font-medium mb-2 block">Message *</Label>
