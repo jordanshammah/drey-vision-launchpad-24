@@ -8,27 +8,54 @@ import { Label } from "@/components/ui/label";
 import { Layout } from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { useRateLimit } from "@/hooks/use-rate-limit";
+import { contactFormSchema } from "@/lib/validation";
+import { sanitizeFormData } from "@/lib/sanitize";
 
 export const Contact = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const { checkRateLimit, getRemainingCooldown } = useRateLimit({ maxAttempts: 3, windowMs: 60_000, cooldownMs: 60_000 });
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", instagram: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
-      toast({ title: "Please fill in required fields", description: "Name, email, and message are required.", variant: "destructive" });
+    setErrors({});
+
+    // Rate limit check
+    if (!checkRateLimit()) {
+      const cooldown = getRemainingCooldown();
+      toast({ title: "Too many submissions", description: `Please wait ${cooldown}s before trying again.`, variant: "destructive" });
       return;
     }
 
+    // Validate
+    const result = contactFormSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        const field = err.path[0] as string;
+        if (!fieldErrors[field]) fieldErrors[field] = err.message;
+      });
+      setErrors(fieldErrors);
+      toast({ title: "Please fix the errors below", variant: "destructive" });
+      return;
+    }
+
+    // Sanitize
+    const sanitized = sanitizeFormData(result.data);
+
     const phone = "254712954629";
-    const text = `New Contact Form Submission%0A%0AName: ${encodeURIComponent(formData.name)}%0AEmail: ${encodeURIComponent(formData.email)}%0ASubject: ${encodeURIComponent(formData.subject || "N/A")}%0AInstagram: ${encodeURIComponent(formData.instagram || "N/A")}%0AMessage: ${encodeURIComponent(formData.message)}`;
+    const text = `New Contact Form Submission%0A%0AName: ${encodeURIComponent(sanitized.name)}%0AEmail: ${encodeURIComponent(sanitized.email)}%0ASubject: ${encodeURIComponent(sanitized.subject || "N/A")}%0AInstagram: ${encodeURIComponent(sanitized.instagram || "N/A")}%0AMessage: ${encodeURIComponent(sanitized.message)}`;
     window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
     setIsSubmitted(true);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    if (errors[name]) setErrors((prev) => { const next = { ...prev }; delete next[name]; return next; });
   };
 
   return (
@@ -106,28 +133,33 @@ export const Contact = () => {
                     <p className="text-muted-foreground">Thank you for reaching out. We'll get back to you within 24 hours.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <Label htmlFor="name" className="text-sm font-medium mb-2 block">Your Name *</Label>
-                        <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="John Smith" className="h-12" required />
+                        <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="John Smith" className="h-12" maxLength={100} required />
+                        {errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
                       </div>
                       <div>
                         <Label htmlFor="email" className="text-sm font-medium mb-2 block">Email Address *</Label>
-                        <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@company.com" className="h-12" required />
+                        <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@company.com" className="h-12" maxLength={255} required />
+                        {errors.email && <p className="text-sm text-destructive mt-1">{errors.email}</p>}
                       </div>
                     </div>
                     <div>
                       <Label htmlFor="subject" className="text-sm font-medium mb-2 block">Subject</Label>
-                      <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="How can we help?" className="h-12" />
+                      <Input id="subject" name="subject" value={formData.subject} onChange={handleChange} placeholder="How can we help?" className="h-12" maxLength={200} />
+                      {errors.subject && <p className="text-sm text-destructive mt-1">{errors.subject}</p>}
                     </div>
                     <div>
                       <Label htmlFor="instagram" className="text-sm font-medium mb-2 block">Instagram <span className="text-muted-foreground font-normal">(recommended)</span></Label>
-                      <Input id="instagram" name="instagram" value={formData.instagram} onChange={handleChange} placeholder="@yourhandle" className="h-12" />
+                      <Input id="instagram" name="instagram" value={formData.instagram} onChange={handleChange} placeholder="@yourhandle" className="h-12" maxLength={100} />
+                      {errors.instagram && <p className="text-sm text-destructive mt-1">{errors.instagram}</p>}
                     </div>
                     <div>
                       <Label htmlFor="message" className="text-sm font-medium mb-2 block">Message *</Label>
-                      <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us more about your inquiry..." rows={6} required />
+                      <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us more about your inquiry..." rows={6} maxLength={2000} required />
+                      {errors.message && <p className="text-sm text-destructive mt-1">{errors.message}</p>}
                     </div>
                     <Button variant="hero" size="lg" type="submit" className="w-full md:w-auto bg-red-accent text-red-accent-foreground hover:bg-red-accent/90">
                       Send Message

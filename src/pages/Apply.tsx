@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle, DollarSign } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,6 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Layout } from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { useRateLimit } from "@/hooks/use-rate-limit";
+import { applyFormSchema } from "@/lib/validation";
+import { sanitizeFormData } from "@/lib/sanitize";
 
 const budgetRangesUSD = [
   "$300 - $1,000/month",
@@ -41,6 +44,8 @@ export const Apply = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [currency, setCurrency] = useState<"USD" | "KES">("USD");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const { checkRateLimit, getRemainingCooldown } = useRateLimit({ maxAttempts: 3, windowMs: 120_000, cooldownMs: 120_000 });
   const budgetRanges = currency === "USD" ? budgetRangesUSD : budgetRangesKES;
   const [formData, setFormData] = useState({
     name: "", email: "", businessName: "", businessType: "", website: "",
@@ -50,16 +55,38 @@ export const Apply = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.businessName || !formData.businessType || !formData.budgetRange) {
-      toast({ title: "Please fill in required fields", description: "Name, email, business name, type, and budget are required.", variant: "destructive" });
+    setErrors({});
+
+    // Rate limit check
+    if (!checkRateLimit()) {
+      const cooldown = getRemainingCooldown();
+      toast({ title: "Too many submissions", description: `Please wait ${cooldown}s before trying again.`, variant: "destructive" });
       return;
     }
-    console.log("Form submitted:", formData);
+
+    // Validate
+    const result = applyFormSchema.safeParse(formData);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        const field = err.path[0] as string;
+        if (!fieldErrors[field]) fieldErrors[field] = err.message;
+      });
+      setErrors(fieldErrors);
+      toast({ title: "Please fix the errors below", variant: "destructive" });
+      return;
+    }
+
+    // Sanitize
+    const sanitized = sanitizeFormData(result.data);
+    console.log("Form submitted:", sanitized);
     setIsSubmitted(true);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    if (errors[name]) setErrors((prev) => { const next = { ...prev }; delete next[name]; return next; });
   };
 
   if (isSubmitted) {
@@ -115,22 +142,25 @@ export const Apply = () => {
       {/* Application Form */}
       <section className="section-padding">
         <div className="container-narrow">
-          <form onSubmit={handleSubmit} className="max-w-3xl">
+          <form onSubmit={handleSubmit} className="max-w-3xl" noValidate>
             <ScrollReveal>
               <div className="mb-12">
                 <h2 className="text-2xl font-bold mb-6">Basic Information</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <Label htmlFor="name" className="text-sm font-medium mb-2 block">Your Name *</Label>
-                    <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="John Smith" className="h-12" required />
+                    <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="John Smith" className="h-12" maxLength={100} required />
+                    {errors.name && <p className="text-sm text-destructive mt-1">{errors.name}</p>}
                   </div>
                   <div>
                     <Label htmlFor="email" className="text-sm font-medium mb-2 block">Email Address *</Label>
-                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@company.com" className="h-12" required />
+                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="john@company.com" className="h-12" maxLength={255} required />
+                    {errors.email && <p className="text-sm text-destructive mt-1">{errors.email}</p>}
                   </div>
                   <div>
                     <Label htmlFor="businessName" className="text-sm font-medium mb-2 block">Business Name *</Label>
-                    <Input id="businessName" name="businessName" value={formData.businessName} onChange={handleChange} placeholder="Acme Inc." className="h-12" required />
+                    <Input id="businessName" name="businessName" value={formData.businessName} onChange={handleChange} placeholder="Acme Inc." className="h-12" maxLength={200} required />
+                    {errors.businessName && <p className="text-sm text-destructive mt-1">{errors.businessName}</p>}
                   </div>
                   <div>
                     <Label htmlFor="businessType" className="text-sm font-medium mb-2 block">Business Type *</Label>
@@ -140,6 +170,7 @@ export const Apply = () => {
                         <option key={type} value={type}>{type}</option>
                       ))}
                     </select>
+                    {errors.businessType && <p className="text-sm text-destructive mt-1">{errors.businessType}</p>}
                   </div>
                 </div>
               </div>
@@ -151,23 +182,24 @@ export const Apply = () => {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="md:col-span-2">
                     <Label htmlFor="website" className="text-sm font-medium mb-2 block">Website URL</Label>
-                    <Input id="website" name="website" value={formData.website} onChange={handleChange} placeholder="https://yourwebsite.com" className="h-12" />
+                    <Input id="website" name="website" value={formData.website} onChange={handleChange} placeholder="https://yourwebsite.com" className="h-12" maxLength={500} />
+                    {errors.website && <p className="text-sm text-destructive mt-1">{errors.website}</p>}
                   </div>
                   <div>
                     <Label htmlFor="instagram" className="text-sm font-medium mb-2 block">Instagram Handle</Label>
-                    <Input id="instagram" name="instagram" value={formData.instagram} onChange={handleChange} placeholder="@yourbrand" className="h-12" />
+                    <Input id="instagram" name="instagram" value={formData.instagram} onChange={handleChange} placeholder="@yourbrand" className="h-12" maxLength={100} />
                   </div>
                   <div>
                     <Label htmlFor="facebook" className="text-sm font-medium mb-2 block">Facebook Page</Label>
-                    <Input id="facebook" name="facebook" value={formData.facebook} onChange={handleChange} placeholder="facebook.com/yourbrand" className="h-12" />
+                    <Input id="facebook" name="facebook" value={formData.facebook} onChange={handleChange} placeholder="facebook.com/yourbrand" className="h-12" maxLength={100} />
                   </div>
                   <div>
                     <Label htmlFor="tiktok" className="text-sm font-medium mb-2 block">TikTok Handle</Label>
-                    <Input id="tiktok" name="tiktok" value={formData.tiktok} onChange={handleChange} placeholder="@yourbrand" className="h-12" />
+                    <Input id="tiktok" name="tiktok" value={formData.tiktok} onChange={handleChange} placeholder="@yourbrand" className="h-12" maxLength={100} />
                   </div>
                   <div>
                     <Label htmlFor="linkedin" className="text-sm font-medium mb-2 block">LinkedIn</Label>
-                    <Input id="linkedin" name="linkedin" value={formData.linkedin} onChange={handleChange} placeholder="linkedin.com/company/yourbrand" className="h-12" />
+                    <Input id="linkedin" name="linkedin" value={formData.linkedin} onChange={handleChange} placeholder="linkedin.com/company/yourbrand" className="h-12" maxLength={100} />
                   </div>
                 </div>
               </div>
@@ -220,14 +252,17 @@ export const Apply = () => {
                         </label>
                       ))}
                     </div>
+                    {errors.budgetRange && <p className="text-sm text-destructive mt-1">{errors.budgetRange}</p>}
                   </div>
                   <div>
                     <Label htmlFor="challenges" className="text-sm font-medium mb-2 block">What are your current marketing challenges?</Label>
-                    <Textarea id="challenges" name="challenges" value={formData.challenges} onChange={handleChange} placeholder="Tell us about the obstacles you're facing..." rows={4} />
+                    <Textarea id="challenges" name="challenges" value={formData.challenges} onChange={handleChange} placeholder="Tell us about the obstacles you're facing..." rows={4} maxLength={3000} />
+                    {errors.challenges && <p className="text-sm text-destructive mt-1">{errors.challenges}</p>}
                   </div>
                   <div>
                     <Label htmlFor="goals" className="text-sm font-medium mb-2 block">What are your goals for the next 6-12 months?</Label>
-                    <Textarea id="goals" name="goals" value={formData.goals} onChange={handleChange} placeholder="Revenue targets, customer acquisition, brand awareness..." rows={4} />
+                    <Textarea id="goals" name="goals" value={formData.goals} onChange={handleChange} placeholder="Revenue targets, customer acquisition, brand awareness..." rows={4} maxLength={3000} />
+                    {errors.goals && <p className="text-sm text-destructive mt-1">{errors.goals}</p>}
                   </div>
                 </div>
               </div>
