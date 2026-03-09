@@ -12,7 +12,7 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 export const Contact = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", instagram: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
