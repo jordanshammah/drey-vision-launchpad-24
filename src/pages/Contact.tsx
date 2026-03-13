@@ -90,7 +90,7 @@ export const Contact = () => {
               <div>
                 <div className="space-y-8 mb-12">
                   {[
-                    { icon: Mail, title: "Email Us", desc: "hello@dreyvision.com" },
+                    { icon: Mail, title: "Email Us", desc: "info@dreyvisionmarketing.com" },
                     { icon: MapPin, title: "Location", desc: "Remote-first, serving clients globally" },
                     { icon: Clock, title: "Response Time", desc: "We typically respond within 2-3 business days" },
                   ].map((item) => (
