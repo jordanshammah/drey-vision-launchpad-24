@@ -7,3 +7,7 @@ compatibility_date = "2026-01-01"
 
 # Required by Pages when using wrangler.toml
 pages_build_output_dir = "./dist"
+
+# Build configuration - explicitly use npm instead of bun
+[build]
+install_command = "npm install"
