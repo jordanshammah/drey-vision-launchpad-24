@@ -3,16 +3,10 @@
 
 name = "drey-vision-launchpad-24"
 # Your Cloudflare Account ID (set via `wrangler whoami` or from dashboard)
-account_id =7f2cdb78924b5e7edcf082c4b9b1d1b6
+account_id = "7f2cdb78924b5e7edcf082c4b9b1d1b6"
 
 # Compatibility date (required by Wrangler)
 compatibility_date = "2026-01-01"
 
-# For Pages deployments, this tells Wrangler where the built output lives.
-[site]
-bucket = "./dist"
-
-# Optional: If you want to use a Worker for advanced routing, you can enable this.
-# [build]
-# command = "npm run build"
-# upload = { format = "service-worker" }
+# Required by Pages when using wrangler.toml
+pages_build_output_dir = "./dist"

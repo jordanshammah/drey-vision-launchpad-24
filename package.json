@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "deploy:pages": "npm run build && wrangler pages publish ./dist --project-name drey-vision-launchpad-24",
+    "deploy:pages": "npm run build && wrangler pages deploy ./dist --project-name drey-vision-launchpad-24 --branch main",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
